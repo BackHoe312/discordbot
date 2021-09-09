@@ -1,6 +1,5 @@
 // discord.js
 const { Client, Intents } = require('discord.js');
-// const { token } = require(__dirname + '/../config.json');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 // ready event
@@ -9,14 +8,10 @@ client.once('ready', () => {
 });
 
 // message event
-client.on('message', message => {
-    if (message.content === '!ping') {
-        message.channel.send('Pong.');
+client.on('<발생할 이벤트>', () => {
+    if (message.content === '<명령어 이름>') {
+        message.channel.send('<명령에 대한 응답>');
     }
-    // else if (message.content === '!beep') {
-    //     message.channel.send('Boop.');
-    // }
 });
 
 client.login('your-token-goes-here');
-// client.login(token);
