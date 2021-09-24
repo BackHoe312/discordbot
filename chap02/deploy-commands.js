@@ -4,8 +4,11 @@ const { Routes } = require('discord-api-types/v9');
 const { clientId, token } = require(__dirname + '/../config.json');
 
 const commands = [
-    new SlashCommandBuilder().setName('<명령어 이름>').setDescription('<명령어 설명>'),
-].map();
+    // new SlashCommandBuilder().setName('<명령어 이름>').setDescription('<명령어 설명>'),
+    new SlashCommandBuilder().setName('ping').setDescription('Replies with Pong!'),
+    new SlashCommandBuilder().setName('server').setDescription('Replies with server info'),
+    new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
+].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(token);
 
@@ -20,4 +23,4 @@ const rest = new REST({ version: '9' }).setToken(token);
     } catch (err) {
         console.error(err);
     }
-})();
+})(); 
